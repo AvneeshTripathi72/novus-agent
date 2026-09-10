@@ -20,12 +20,15 @@ The system supports private document ingestion, persistent sessions, and automat
 - **Backend (Render):** https://novusai-backend.onrender.com
 
 ## Use Case: Accelerating Drug Repurposing
+
 Traditional biomedical research is siloed—patent data, clinical trials, and academic literature rarely talk to each other. **NovusAI** solves this by acting as an autonomous research assistant that:
+
 * **Identifies New Pathways:** Cross-references existing FDA-approved drugs with new disease targets found in recent PubMed literature.
 * **Risk Mitigation:** Scans clinical trial failures and patent legalities to assess the feasibility of repurposing.
 * **Rapid Synthesis:** Reduces weeks of manual literature review into seconds of structured, cited intelligence.
 
 ## Key Features
+
 * **Multi-Agent Orchestration:** 6+ specialized agents (Patent, Clinical, Literature, Web, Market, Internal) working in parallel.
 * **Biomedical Entity Intelligence:** Integrated with **EBI OLS4 API** for automated drug/disease entity extraction and synonym expansion.
 * **Private Knowledge Vault:** Secure RAG for internal proprietary documents (.pdf, .txt) using **Supabase Vector Storage**.
@@ -33,7 +36,6 @@ Traditional biomedical research is siloed—patent data, clinical trials, and ac
 * **Explainable AI:** Every insight includes inline citations and source-linking to the original research or patent filing.
 * **Contextual Memory:** Persistent session states allowing for iterative, multi-turn biomedical discovery.
 
-## Screenshot
 ## 📸 Product Interface
 
 <table border="0">
@@ -64,10 +66,12 @@ Traditional biomedical research is siloed—patent data, clinical trials, and ac
 
 ### Private Knowledge Vault
 The secure admin interface for document ingestion and vectorization.
+
 <img src="https://github.com/user-attachments/assets/b4653e44-e6e9-40b1-9b62-f075ae7ef44f" width="100%" />
 
 ### Automated Synthesis Report
 Generated high-fidelity biomedical summary.
+
 <img src="https://github.com/user-attachments/assets/1829f27d-689d-482c-be62-a43d241a5f7c" width="100%" />
 
 </details>
@@ -116,12 +120,13 @@ flowchart TB
 ```
 
 ## Agentic RAG Pipeline
-## 1. Pre-Synthesis Layer
+
+### 1. Pre-Synthesis Layer
 The entry point focuses on linguistic precision and query expansion.
 * **Entity Extraction:** Automatically isolates **Disease** and **Drug** entities from natural language queries.
 * **Synonym Expansion:** Connects to the [EBI OLS4 API](https://www.ebi.ac.uk/ols4/api) to build comprehensive synonym sets, ensuring the search covers all scientific and trade names.
 
-## 2. Orchestration & Retrieval
+### 2. Orchestration & Retrieval
 A parallelized agentic layer that queries diverse data silos simultaneously.
 
 | Agent | Source | Data Domain |
@@ -133,25 +138,25 @@ A parallelized agentic layer that queries diverse data silos simultaneously.
 | **Market Agent** | **Mock Data** | Commercial trends, pricing, and competitive landscape. |
 | **Internal Agent** | **Supabase** | Proprietary documents and historical knowledge. |
 
-## 3. Data Processing & Synthesis
+### 3. Data Processing & Synthesis
 Transforming raw, heterogeneous data into structured intelligence.
 
-### Evidence Builder
+#### Evidence Builder
 * **Normalization:** Standardizes units, dates, and nomenclature across all 6 agents.
 * **Merging:** Deduplicates information and ranks evidence based on source credibility.
 
-### LLM Synthesis
+#### LLM Synthesis
 * **Engine:** Groq API
 * **Model:** `llama-3.3-70b-versatile`
 * **Output:** Generates high-fidelity summaries with inline citations.
 
-## 4. Analytics & Visualization
+### 4. Analytics & Visualization
 The system prepares JSON-ready objects for front-end rendering:
 * **Market Trends:** Historical and projected growth curves.
 * **Patient Outcomes:** Comparative bar charts (Treated vs. Untreated).
 * **Clinical Roadmap:** Pie charts or timelines showing Study Phases (I, II, III, IV).
 
-## 5. Persistence & Continuity
+### 5. Persistence & Continuity
 * **Storage:** Saves synthesized answers to a permanent database.
 * **Session State:** Enables "rebuild" functionality where the model remembers previous context for iterative discovery.
 
@@ -162,9 +167,9 @@ The system prepares JSON-ready objects for front-end rendering:
 
 ## Authentication
 - JWT-based
-Roles:
-- admin → upload documents
-- employee → query only
+- Roles:
+  - `admin` → upload documents
+  - `employee` → query only
 
 ---
 
@@ -193,7 +198,10 @@ Building a multi-agent system for biomedical data presented several "real-world"
     * `Patent Data (High)` > `Clinical Trials` > `Literature` > `Web Intel (Low)`.
     * The LLM is prompted to prioritize "Source Truth" based on these weights when synthesizing the final report.
 
+---
+
 ## Tech Stack
+
 ### Backend
 - FastAPI
 - SQLAlchemy
@@ -211,7 +219,10 @@ Building a multi-agent system for biomedical data presented several "real-world"
 - Backend → Render
 - Frontend → Netlify
 
+---
+
 ## Local Setup
+
 ### Backend
 ```bash
 cd backend
@@ -226,7 +237,11 @@ npm install
 npm run dev
 ```
 
-## Environment Variables (Backend)
+---
+
+## Environment Variables
+
+### Backend (`backend/.env`)
 ```bash
 SUPABASE_URL=xxxxxxxxxx
 SUPABASE_SERVICE_KEY=xxxxxxxxxx
@@ -242,20 +257,24 @@ CONSUMER_KEY=xxxxxxxxxx
 CONSUMER_SECRET=xxxxxxxxxx
 ```
 
-## Environment Variables (Frontend)
+### Frontend (`frontend/.env`)
 ```bash
 VITE_API_BASE_URL=https://<backend-url>
 ```
 
+---
+
 ## Repository Structure
 ```bash
-NovusAI/
+novus-agent/
   backend/
   frontend/
+  README.md
+  .gitignore
 ```
 
+---
+
 ## Author
-Devashish Mishra
+**Devashish Mishra**  
 B.Tech | AI/ML | Full-Stack | Cloud
-#   n o v u s - a g e n t  
- 
