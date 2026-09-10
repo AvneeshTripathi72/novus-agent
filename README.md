@@ -19,6 +19,8 @@ The system supports private document ingestion, persistent sessions, and automat
 - **Frontend (Netlify):** [Live Link](https://novusai.netlify.app/)
 - **Backend (Render):** https://novusai-backend.onrender.com
 
+
+
 ## Use Case: Accelerating Drug Repurposing
 
 Traditional biomedical research is siloed—patent data, clinical trials, and academic literature rarely talk to each other. **NovusAI** solves this by acting as an autonomous research assistant that:
