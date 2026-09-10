@@ -276,5 +276,5 @@ novus-agent/
 ---
 
 ## Author
-**Devashish Mishra**  
+**Avneesh Kumar Tripathi**  
 B.Tech | AI/ML | Full-Stack | Cloud
